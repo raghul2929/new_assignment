@@ -18,7 +18,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admin/adminlogin",
+        "https://new-assignment-backend.onrender.com/api/admin/adminlogin",
         { email, password },
         { withCredentials: true }
       );
