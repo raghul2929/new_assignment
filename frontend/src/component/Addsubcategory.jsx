@@ -19,7 +19,7 @@ function AddSubCategory() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/category');
+        const response = await axios.get('https://new-assignment-backend.onrender.com/api/category');
         setCategories(response.data);
       } catch (error) {
         toast.error('Error fetching categories.', { position: 'top-right', autoClose: 5000 });
@@ -49,7 +49,7 @@ function AddSubCategory() {
 
     try {
       setIsSubmitting(true);
-      await axios.post('http://localhost:5000/api/subcategory', formData, {
+      await axios.post('https://new-assignment-backend.onrender.com/api/subcategory', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
