@@ -40,7 +40,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       // Send the logout request to the backend
-      await axios.post("http://localhost:5000/api/admin/logout", {}, { withCredentials: true });
+      await axios.post("https://new-assignment-backend.onrender.com/api/admin/logout", {}, { withCredentials: true });
 
       // Show an alert and redirect to the login page
       alert("Logged Out Successfully");
