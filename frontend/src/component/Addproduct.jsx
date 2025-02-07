@@ -24,8 +24,8 @@ console.log(formData);
     const fetchData = async () => {
       try {
         const [categoriesRes, subcategoriesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/category'),
-          axios.get('http://localhost:5000/api/subcategory'),
+          axios.get('https://new-assignment-backend.onrender.com/api/category'),
+          axios.get('https://new-assignment-backend.onrender.com/api/subcategory'),
         ]);
         setCategories(categoriesRes.data);
         setSubcategories(subcategoriesRes.data);
@@ -85,7 +85,7 @@ console.log(formData);
      
 
       // Send the form data with the image file to the server
-      const response = await axios.post('http://localhost:5000/api/product', formDataWithImage);
+      const response = await axios.post('https://new-assignment-backend.onrender.com/api/product', formDataWithImage);
       toast.success('Product added successfully!');
 
       // Clear the form data after success
