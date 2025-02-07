@@ -16,7 +16,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/product");
+        const response = await axios.get("https://new-assignment-backend.onrender.com/api/product");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -40,7 +40,7 @@ const Products = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this product?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/product/${id}`);
+        await axios.delete(`https://new-assignment-backend.onrender.com/api/product/${id}`);
         setProducts(products.filter((product) => product._id !== id)); // Remove deleted product from state
         alert("Product deleted successfully.");
       } catch (error) {
