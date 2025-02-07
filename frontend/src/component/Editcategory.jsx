@@ -19,7 +19,7 @@ function EditCategory() {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/category/${id}`);
+        const response = await axios.get(`https://new-assignment-backend.onrender.com/api/category/${id}`);
         console.log('Category fetched:', response.data); // Debug the API response
         const category = response.data;
 
@@ -27,7 +27,7 @@ function EditCategory() {
         setCategoryName(category.categoryName);
         setSequence(category.sequence);
         setStatus(category.status);
-        setPreviewImage(`http://localhost:5000/${category.image}`); // Assuming the image path is returned this way
+        setPreviewImage(`https://new-assignment-backend.onrender.com/${category.image}`); // Assuming the image path is returned this way
       } catch (error) {
         toast.error('Failed to load category data.', { position: 'top-right' });
         console.error('Error fetching category:', error);
@@ -72,7 +72,7 @@ function EditCategory() {
     try {
       setIsSubmitting(true);
       // Send PUT request to update category
-      await axios.put(`http://localhost:5000/api/category/${id}`, formData, {
+      await axios.put(`https://new-assignment-backend.onrender.com/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
