@@ -11,7 +11,7 @@ const Category = () => {
   // Fetch categories from API
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/category/");
+      const response = await axios.get("https://new-assignment-backend.onrender.com/api/category/");
       setCategories(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -36,7 +36,7 @@ const Category = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/category/${id}`);
+        await axios.delete(`https://new-assignment-backend.onrender.com/category/${id}`);
         setCategories(categories.filter((category) => category._id !== id));
         console.log("Category deleted successfully");
       } catch (error) {
@@ -102,7 +102,7 @@ const Category = () => {
                 <td className="p-3">
                   {category.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${category.image}`}  // Display only the image
+                      src={`https://new-assignment-backend.onrender.com/${category.image}`}  // Display only the image
                       alt=""
                       className="w-12 h-12 object-cover rounded-md"
                     />
