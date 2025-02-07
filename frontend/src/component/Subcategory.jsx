@@ -13,7 +13,7 @@ const Subcategory = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/category");
+      const response = await axios.get("https://new-assignment-backend.onrender.com/api/category");
       setCategories(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -22,7 +22,7 @@ const Subcategory = () => {
 
   const fetchSubcategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/subcategory");
+      const response = await axios.get("https://new-assignment-backend.onrender.com/api/subcategory");
       setSubcategories(response.data);
     } catch (error) {
       console.error("Error fetching subcategories:", error);
@@ -47,7 +47,7 @@ const Subcategory = () => {
     const isConfirmed = window.confirm("Are you sure you want to delete this subcategory?");
     if (isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/subcategory/${id}`);
+        await axios.delete(`https://new-assignment-backend.onrender.com/api/subcategory/${id}`);
         setSubcategories(subcategories.filter((subcategory) => subcategory._id !== id));
         alert("Subcategory deleted successfully.");
       } catch (error) {
@@ -98,7 +98,7 @@ const Subcategory = () => {
                   <td className="p-3">{row.category?.categoryName || "No Category"}</td>
                   <td className="p-3">
                     {row.image ? (
-                      <img src={`http://localhost:5000/uploads/${row.image}`} className="w-20 h-20 object-cover" />
+                      <img src={`https://new-assignment-backend.onrender.com/${row.image}`} className="w-20 h-20 object-cover" />
                     ) : (
                       <span>No Image</span>
                     )}
