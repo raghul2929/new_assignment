@@ -21,7 +21,7 @@ function EditSubCategory() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/category');
+        const response = await axios.get('https://new-assignment-backend.onrender.com/api/category');
         setCategories(response.data);
       } catch (error) {
         toast.error('Error fetching categories.', { position: 'top-right', autoClose: 5000 });
@@ -30,14 +30,14 @@ function EditSubCategory() {
 
     const fetchSubcategory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/subcategory/${id}`);
+        const response = await axios.get(`https://new-assignment-backend.onrender.com/api/subcategory/${id}`);
         const subcategory = response.data;
         setSubCategoryName(subcategory.subCategoryName);
         setCategoryId(subcategory.category._id);
         setSequence(subcategory.sequence);
         setStatus(subcategory.status);
         if (subcategory.image) {
-          setImagePreview(`http://localhost:5000/uploads/${subcategory.image}`);
+          setImagePreview(`https://new-assignment-backend.onrender.com/${subcategory.image}`);
         }
       } catch (error) {
         toast.error('Error fetching subcategory data.', { position: 'top-right', autoClose: 5000 });
@@ -69,7 +69,7 @@ function EditSubCategory() {
 
     try {
       setIsSubmitting(true);
-      await axios.put(`http://localhost:5000/api/subcategory/${id}`, formData, {
+      await axios.put(`https://new-assignment-backend.onrender.com/api/subcategory/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
