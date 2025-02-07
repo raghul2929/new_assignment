@@ -26,8 +26,8 @@ const EditProduct = () => {
     const fetchData = async () => {
       try {
         const [categoriesRes, subcategoriesRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/category"),
-          axios.get("http://localhost:5000/api/subcategory"),
+          axios.get("https://new-assignment-backend.onrender.com/api/category"),
+          axios.get("https://new-assignment-backend.onrender.com/api/subcategory"),
         ]);
         setCategories(categoriesRes.data);
         setSubcategories(subcategoriesRes.data);
@@ -42,7 +42,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/product/${id}`);
+        const response = await axios.get(`https://new-assignment-backend.onrender.com/api/product/${id}`);
         const product = response.data;
 
         // Pre-fill the form data
@@ -108,7 +108,7 @@ const EditProduct = () => {
       formDataWithImage.append("status", formData.status);
 
       // Send the form data with the image file to the server
-      const response = await axios.put(`http://localhost:5000/api/product/${id}`, formDataWithImage);
+      const response = await axios.put(`https://new-assignment-backend.onrender.com/api/product/${id}`, formDataWithImage);
       toast.success("Product updated successfully!");
 
       // Clear the form data after success
